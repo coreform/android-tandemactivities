@@ -62,6 +62,9 @@ public class Example02MapFragment extends Fragment {
 		mLocalActivityManager = new LocalActivityManager(getActivity(), true);
 		mLocalActivityManager.dispatchCreate(state);
 		Intent mapActivityIntent = new Intent(getActivity(), TandemActivitiesMapActivity.class);
+		Bundle mapActivityStartupBundle = new Bundle();
+		mapActivityStartupBundle.putInt("mapFragmentResource", R.layout.fragment_example02_map);
+		mapActivityIntent.putExtras(mapActivityStartupBundle);
 		mWindow = mLocalActivityManager.startActivity("mapActivity", mapActivityIntent);
 		
 		//ensure this FragmentActivity takes key events, rather than the MapActivity

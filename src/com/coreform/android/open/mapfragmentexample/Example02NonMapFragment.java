@@ -133,6 +133,7 @@ public class Example02NonMapFragment extends Fragment {
 				Fragment nextFragment = new Example02MapFragment();
 				Bundle nextFragmentArgumentsBundle = new Bundle();
 				nextFragmentArgumentsBundle.putBoolean("isInsideTopFragmentContainer", true);
+				nextFragmentArgumentsBundle.putInt("mapFragmentResource", R.layout.fragment_example01_map);	//will be passed through to MapActivity
 				nextFragment.setArguments(nextFragmentArgumentsBundle);
 				//start fragment transaction, add current fragment to backStack, replace current fragment with nextFragment
 				FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

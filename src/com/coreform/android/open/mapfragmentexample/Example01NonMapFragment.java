@@ -120,6 +120,9 @@ public class Example01NonMapFragment extends Fragment {
 			if(DEBUG) Log.d(TAG, "...MOVING TO FRAGMENT: Example01MapFragment...");
 			//define next fragment and pass it startup values via Bundle
 			Fragment nextFragment = new Example01MapFragment();
+			Bundle mapActivityStartupBundle = new Bundle();
+			mapActivityStartupBundle.putInt("mapFragmentResource", R.layout.fragment_example01_map);
+			nextFragment.setArguments(mapActivityStartupBundle);
 			//start fragment transaction, add current fragment to backStack, replace current fragment with nextFragment
 			FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 			fragmentTransaction.replace(R.id.fragmentcontent, nextFragment);

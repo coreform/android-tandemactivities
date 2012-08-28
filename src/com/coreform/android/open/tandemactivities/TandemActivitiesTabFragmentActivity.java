@@ -181,7 +181,9 @@ public abstract class TandemActivitiesTabFragmentActivity extends FragmentActivi
         	//BetterTabManager handles extra isLegacyActivityTab, in which case it is expected that clss is an Activity that should be added to TabSpec in place of DummyTabFactory
             if(isLegacyActivityTab) {
             	Intent legacyActivityIntent = new Intent(mActivity, clss);
-            	legacyActivityIntent.putExtras(args);
+            	if(args != null) {
+            		legacyActivityIntent.putExtras(args);
+            	}
             	tabSpec.setContent(legacyActivityIntent);
             	String tag = tabSpec.getTag();
                 TabInfo info = new TabInfo(tag, clss, args, true);

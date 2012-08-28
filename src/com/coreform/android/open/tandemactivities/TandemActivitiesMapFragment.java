@@ -50,8 +50,10 @@ public class TandemActivitiesMapFragment extends Fragment implements TandemActiv
         }
 		mLocalActivityManager = new LocalActivityManager(getActivity(), true);
 		mLocalActivityManager.dispatchCreate(state);
-		//Intent mapActivityIntent = new Intent(getActivity(), Example01MapActivity.class);
+		//pass the mapActivityStartupBundle along to the MapActivity
 		Intent mapActivityIntent = new Intent(getActivity(), TandemActivitiesMapActivity.class);
+		Bundle mapActivityStartupBundle = this.getArguments();
+		mapActivityIntent.putExtras(mapActivityStartupBundle);
 		mWindow = mLocalActivityManager.startActivity("mapActivity", mapActivityIntent);
 		
 		//ensure this FragmentActivity takes key events, rather than the MapActivity

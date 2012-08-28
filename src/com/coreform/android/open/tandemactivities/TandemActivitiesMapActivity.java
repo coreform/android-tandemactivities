@@ -33,7 +33,9 @@ public class TandemActivitiesMapActivity extends MapActivity implements TandemAc
         //extract desired content view resource from activityStartupBundle
         Bundle activityStartupBundle = this.getIntent().getExtras();
         int mapFragmentResource = activityStartupBundle.getInt("mapFragmentResource");
-        setContentView(mapFragmentResource);	//R.layout.fragment_example01_map
+        if(DEBUG) Log.d(TAG, "mapFragmentResource: "+Integer.toString(mapFragmentResource)+", vs. "+R.layout.fragment_example03_tab_map);
+        View contentView = getLayoutInflater().inflate(mapFragmentResource, null);
+        setContentView(contentView);
     }
     
     @Override
